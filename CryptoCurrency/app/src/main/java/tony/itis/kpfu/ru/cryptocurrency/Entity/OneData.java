@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by al on 11.12.17.
  */
 
-public class AllData {
+public class OneData {
 
     @SerializedName("id")
     private String id;
