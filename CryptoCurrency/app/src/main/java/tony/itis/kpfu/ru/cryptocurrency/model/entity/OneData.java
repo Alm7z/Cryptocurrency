@@ -1,4 +1,4 @@
-package tony.itis.kpfu.ru.cryptocurrency.Entity;
+package tony.itis.kpfu.ru.cryptocurrency.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by al on 11.12.17.
  */
 
-public class AllData {
+public class OneData {
 
     @SerializedName("id")
     private String id;
