@@ -4,4 +4,6 @@
     <string name="value">value</string>
     <string name="balance">Баланс равен: ........</string>
     <string name="converter">Конвертер</string>
+    <string name="_1st_currency">1st currency</string>
+    <string name="_2nd_currency">2nd currency</string>
 </resources>
