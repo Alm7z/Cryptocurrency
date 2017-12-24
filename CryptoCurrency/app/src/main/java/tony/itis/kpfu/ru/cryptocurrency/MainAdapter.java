@@ -1,10 +1,15 @@
 package tony.itis.kpfu.ru.cryptocurrency;
 
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * Created by Bulat Murtazin on 11.12.2017.
@@ -13,7 +18,11 @@ import android.view.ViewGroup;
 
 public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
-    private List<Currency> currencyList;
+    private ArrayList<Currency> currencyList;
+
+    public MainAdapter(ArrayList<Currency> currencies) {
+        this.currencyList = currencies;
+    }
 
     @Override
     public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -23,10 +32,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     @Override
     public void onBindViewHolder(MainViewHolder holder, int position) {
-        //TODO entity for currency
-        Currency currency = currencyList,get(position);
 
-        //TODO get text for views
+        Currency currency = currencyList.get(position);
+
+        holder.coinPrice.setText(currency.getValue());
+        holder.name.setText(currency.getName());
+
+        Glide.with(holder.itemView.getContext())
+                .load(currency.getPicUrl())
+                .transition(withCrossFade(3000))
+                .into(holder.icon);
     }
 
     @Override

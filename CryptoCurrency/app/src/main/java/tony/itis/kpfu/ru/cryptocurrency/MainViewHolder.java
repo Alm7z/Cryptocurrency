@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Bulat Murtazin on 11.12.2017.
@@ -17,6 +18,9 @@ public class MainViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.icon)
     public ImageView icon;
 
+    @BindView(R.id.name)
+    public TextView name;
+
     @BindView(R.id.coin_price)
     public TextView coinPrice;
 
@@ -25,5 +29,6 @@ public class MainViewHolder extends RecyclerView.ViewHolder {
 
     public MainViewHolder(View itemView) {
         super(itemView);
+        ButterKnife.bind(this, itemView);
     }
 }

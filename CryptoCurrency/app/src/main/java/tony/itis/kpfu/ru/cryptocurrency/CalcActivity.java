@@ -1,14 +1,20 @@
 package tony.itis.kpfu.ru.cryptocurrency;
 
+import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Bulat Murtazin on 17.12.2017.
@@ -18,13 +24,18 @@ import butterknife.ButterKnife;
 public class CalcActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar_view)
-    private Toolbar toolbar;
+    public Toolbar toolbar;
 
     @BindView(R.id.back)
-    private ImageView back;
+    public ImageView back;
 
     @BindView(R.id.price)
-    private TextView price;
+    public TextView price;
+
+    @OnClick(R.id.back)
+    void onBackClick() {
+        onBackPressed();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,5 +44,16 @@ public class CalcActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
+
+        if (getFragmentManager().findFragmentById(R.id.calc_container) == null) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.calc_container, makeFragment())
+                    .commit();
+        }
+    }
+
+    private Fragment makeFragment() {
+        return CalcFragment.newInstance();
     }
 }

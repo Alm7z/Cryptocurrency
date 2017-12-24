@@ -21,22 +21,22 @@ import butterknife.ButterKnife;
 public class CalcFragment extends Fragment {
 
     @BindView(R.id.reverse)
-    private ImageView reverse;
+    public ImageView reverse;
 
     @BindView(R.id.first_currency)
-    private TextView currency1;
+    public TextView currency1;
 
     @BindView(R.id.second_currency)
-    private TextView currency2;
+    public TextView currency2;
 
     @BindView(R.id.settings)
-    private ImageButton settings;
+    public ImageButton settings;
 
-    public CalcFragment newInstance() {
+    public static CalcFragment newInstance() {
         Bundle args = new Bundle();
         CalcFragment fragment = new CalcFragment();
         fragment.setArguments(args);
-        return  fragment;
+        return fragment;
     }
 
     @Nullable
@@ -44,7 +44,7 @@ public class CalcFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.calculator_fragment, container, false);
 
-        ButterKnife.bind(view);
+        ButterKnife.bind(this, view);
 
         return view;
     }

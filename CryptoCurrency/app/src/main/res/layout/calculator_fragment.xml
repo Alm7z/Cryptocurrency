@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
     <ImageButton
         android:id="@+id/reverse"
@@ -26,10 +27,12 @@
                 android:id="@+id/first_currency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_orange_dark"
                 android:text="@string/_1st_currency"
                 android:textSize="30sp"/>
             <TextView
                 android:id="@+id/second_currency"
+                android:textColor="@android:color/holo_orange_dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_2nd_currency"

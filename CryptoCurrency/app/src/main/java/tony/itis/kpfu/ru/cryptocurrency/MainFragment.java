@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,11 +23,7 @@ import butterknife.ButterKnife;
 public class MainFragment extends Fragment {
 
     @BindView(R.id.recycler_view)
-    private RecyclerView recyclerView;
-
-    private MainAdapter adapter;
-
-    private LinearLayoutManager manager;
+    public RecyclerView recyclerView;
 
     @NonNull
     public static MainFragment newInstance() {
@@ -40,15 +38,38 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
 
-        ButterKnife.bind(view);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
 
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity());
+        MainAdapter adapter = new MainAdapter(makeCurrencies());
 
-        adapter = new MainAdapter();
+        ButterKnife.bind(this, view);
+
 
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    private ArrayList<Currency> makeCurrencies() {
+        ArrayList<Currency> currencies = new ArrayList<>();
+        currencies.add(new Currency("Bitcoin", "13000$"));
+        currencies.add(new Currency("Dogecoin", "100$"));
+        currencies.add(new Currency("Ethereum", "1400$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+        currencies.add(new Currency("Lightcoin", "2397$"));
+
+        return currencies;
     }
 }
