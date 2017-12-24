@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
     <ImageView
+        android:layout_margin="16dp"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:id="@+id/icon"
@@ -10,9 +12,11 @@
     <TextView
         android:textSize="24sp"
         android:gravity="center"
-        android:layout_width="84sp"
-        android:layout_height="64sp"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
+        android:ellipsize="end"
         android:id="@+id/name"
+        android:layout_margin="16dp"
         android:layout_toRightOf="@id/icon"
         android:textColor="@android:color/holo_orange_dark"
         android:text="@string/bitcoin"
@@ -21,11 +25,13 @@
         android:textSize="24sp"
         android:layout_alignParentRight="true"
         android:gravity="center"
+        android:layout_margin="16dp"
         android:id="@+id/coin_price"
         android:layout_width="wrap_content"
         android:layout_height="64sp"
         android:layout_toRightOf="@id/name"
         android:text="@string/value"
+        android:textColor="@android:color/holo_orange_dark"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/name" />
 
