@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:id="@+id/icon"
+        android:src="@drawable/btc"/>
+    <TextView
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_width="84sp"
+        android:layout_height="64sp"
+        android:id="@+id/name"
+        android:layout_toRightOf="@id/icon"
+        android:textColor="@android:color/holo_orange_dark"
+        android:text="@string/bitcoin"
+        android:layout_toEndOf="@id/icon" />
+    <TextView
+        android:textSize="24sp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:id="@+id/coin_price"
+        android:layout_width="wrap_content"
+        android:layout_height="64sp"
+        android:layout_toRightOf="@id/name"
+        android:text="@string/value"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/name" />
+
+    <View
+        android:id="@+id/splitter"
+        android:layout_below="@id/coin_price"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/black"/>
+</RelativeLayout>
