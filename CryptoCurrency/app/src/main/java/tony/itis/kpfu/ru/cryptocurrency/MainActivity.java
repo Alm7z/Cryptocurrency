@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -17,6 +18,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tony.itis.kpfu.ru.cryptocurrency.entity.OneData;
 
@@ -43,47 +45,27 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.plus)
     void onPlusClick() {
-        new MaterialDialog.Builder(this)
-                .title("Adding new currency")
-                .customView(R.layout.dialog_add_new, true)
-                .positiveText("OK")
-                .negativeText("Cancel")
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        onBackPressed();
-                    }
-                })
-                .show();
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Example
 
-        MainPresenter presenter = new MainPresenter(new MainView() {
-            @Override
-            public void onLoadingFromInternet(List<OneData> list) {
-                Log.d("Alm", "from Internet: " + list.size());
 
-            }
+        setSupportActionBar(toolbar);
 
-            @Override
-            public void onLoadingFromDatabase(List<OneData> list) {
+        if (getFragmentManager().findFragmentById(R.id.fragment_container) == null) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_container, makeFragment())
+                    .commit();
+        }
 
-                Log.d("Alm", "from DB: " + list.size());
+        ButterKnife.bind(this);
 
-            }
 
-            @Override
-            public void onEmptyDatabase() {
-                Log.d("Alm", "MainPresenter onEmptyDatabase");
-            }
-        }, this);
-
-        presenter.load();
 
     }
 
