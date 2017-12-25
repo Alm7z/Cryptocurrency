@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:id="@+id/calc_layout"
+    >
 
     <ImageButton
         android:id="@+id/reverse"
@@ -50,4 +58,14 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/currencies" />
 
+
 </RelativeLayout>
+    <TableLayout
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:id="@+id/table_layout">
+    </TableLayout>
+</LinearLayout>
