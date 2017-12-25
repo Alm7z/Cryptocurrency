@@ -6,9 +6,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import tony.itis.kpfu.ru.cryptocurrency.Entity.OneData;
-import tony.itis.kpfu.ru.cryptocurrency.network.Downloader;
-import tony.itis.kpfu.ru.cryptocurrency.network.InterfaceForNetwork;
+import tony.itis.kpfu.ru.cryptocurrency.entity.OneData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,22 +15,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Downloader d=new Downloader(new InterfaceForNetwork() {
-            @Override
-            public void onLoadingSucces(List<OneData> list) {
-                for (OneData d :
-                        list) {
+        //Example
 
-                }
+        MainPresenter presenter = new MainPresenter(new MainView() {
+            @Override
+            public void onLoadingFromInternet(List<OneData> list) {
+                Log.d("Alm", "from Internet: " + list.size());
+
             }
 
             @Override
-            public void onLoadingError() {
+            public void onLoadingFromDatabase(List<OneData> list) {
+
+                Log.d("Alm", "from DB: " + list.size());
 
             }
-        }
-        ,this);
-        d.load();
+
+            @Override
+            public void onEmptyDatabase() {
+                Log.d("Alm", "MainPresenter onEmptyDatabase");
+            }
+        }, this);
+
+        presenter.load();
 
     }
 }

@@ -2,14 +2,16 @@ package tony.itis.kpfu.ru.cryptocurrency.network;
 
 import java.util.List;
 
-import tony.itis.kpfu.ru.cryptocurrency.Entity.OneData;
+import tony.itis.kpfu.ru.cryptocurrency.entity.OneData;
 
 /**
  * Created by al on 11.12.17.
  */
 
 public interface InterfaceForNetwork {
-    void onLoadingSucces(List<OneData> list);
-    void onLoadingError();
+
+    void onNetworkLoadingSucces(List<OneData> list);
+
+    void onNetworkLoadingError();
 
 }

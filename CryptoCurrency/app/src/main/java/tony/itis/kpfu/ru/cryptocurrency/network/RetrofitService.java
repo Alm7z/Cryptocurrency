@@ -4,7 +4,7 @@ import java.util.List;
 
 import retrofit2.http.GET;
 import rx.Observable;
-import tony.itis.kpfu.ru.cryptocurrency.Entity.OneData;
+import tony.itis.kpfu.ru.cryptocurrency.entity.OneData;
 
 /**
  * Created by al on 11.12.17.

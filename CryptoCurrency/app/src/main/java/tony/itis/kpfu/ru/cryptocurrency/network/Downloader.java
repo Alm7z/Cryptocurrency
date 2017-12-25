@@ -11,7 +11,7 @@ import me.tatarka.rxloader.RxLoaderObserver;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import tony.itis.kpfu.ru.cryptocurrency.AppDelegate;
-import tony.itis.kpfu.ru.cryptocurrency.Entity.OneData;
+import tony.itis.kpfu.ru.cryptocurrency.entity.OneData;
 
 /**
  * Created by al on 11.12.17.
@@ -55,27 +55,30 @@ public class Downloader {
                 new RxLoaderObserver<List<OneData>>() {
                     @Override
                     public void onNext(List<OneData> value) {
-                        Log.d("Alm", "onNext");
-                        for (OneData d :
-                                value) {
-                            Log.d("Alm", d.getName());
-                        }
+                        Log.d("Alm", "Downloader onNext");
+//                        for (OneData d :
+//                                value) {
+//                            Log.d("Alm", d.getName());
+//
+//                        }
+                        Log.d("Alm", "Downloader: " + value.size());
 
-                        interfaceForNetwork.onLoadingSucces(value);
+
+                        interfaceForNetwork.onNetworkLoadingSucces(value);
 
                     }
 
                     @Override
                     public void onCompleted() {
-                        Log.d("Alm", "onCompleted");
+                        Log.d("Alm", "Downloader onCompleted");
                         loader.clear();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("Alm", "onError");
+                        Log.d("Alm", "Downloader onError");
 
-                        interfaceForNetwork.onLoadingError();
+                        interfaceForNetwork.onNetworkLoadingError();
 
                         loader.clear();
                     }

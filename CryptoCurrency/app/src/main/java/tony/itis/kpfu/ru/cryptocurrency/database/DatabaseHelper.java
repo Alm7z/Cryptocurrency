@@ -1,10 +1,10 @@
-package tony.itis.kpfu.ru.cryptocurrency.model.database;
+package tony.itis.kpfu.ru.cryptocurrency.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import tony.itis.kpfu.ru.cryptocurrency.model.table.Table;
+import tony.itis.kpfu.ru.cryptocurrency.database.table.Table;
 
 /**
  * Created by Aizat on 11.12.2017.

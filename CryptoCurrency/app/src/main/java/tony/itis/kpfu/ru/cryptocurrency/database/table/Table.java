@@ -1,4 +1,4 @@
-package tony.itis.kpfu.ru.cryptocurrency.model.table;
+package tony.itis.kpfu.ru.cryptocurrency.database.table;
 
 import android.support.annotation.NonNull;
 
@@ -21,7 +21,10 @@ public class Table {
     @NonNull
     public static String getCreateQuery(){
         return "CREATE TABLE " + NAME_TABLE + " (" +
-                COLUMN_ID + " TEXT NON NULL PRIMARY KEY" +
+
+                //тут бы запятую после KEY забыть, да Айзат?
+
+                COLUMN_ID + " TEXT NON NULL PRIMARY KEY," +
                 COLUMN_NAME + " TEXT NON NULL," +
                 COLUMN_RANK + " TEXT NON NULL," +
                 COLUMN_PRICE + " TEXT NON NULL);";
